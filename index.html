@@ -1,8 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Whareformer: Learning to Track What is Where in Long Egocentric Videos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script>window.MathJax = {tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } }; </script>   
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async> </script>
+</head>
 <body>
 
-<h1>Coming soon...</h1>
+    <div class="container">
+        
+        <header class="project-header">
+            <h1 class="project-title">Whareformer: Learning to Track What is Where in Long Egocentric Videos</h1>
+            <div class="project-venue">European Conference on Computer Vision (ECCV), 2026</div>
+            
+            <div class="project-authors">
+                <a href="https://jacobchalk.github.io">Jacob Chalk</a><sup>1</sup>,
+                <a href="https://sinhasaptarshi.github.io">Saptarshi Sinha</a><sup>1</sup>,
+                <a href="https://dimadamen.github.io">Dima Damen</a><sup>1</sup>,
+                <a href="https://www.skamalas.com">Yannis Kalantidis</a><sup>2</sup>,
+                <a href="https://dlarlus.github.io">Diane Larlus</a><sup>2</sup>
+            </div>
+            
+            <div class="project-affiliations">
+                <sup>1</sup>University of Bristol &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+                <sup>2</sup>NAVER LABS Europe
+            </div>
 
+            <div class="paper-links">
+                <a href="#" class="btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+                <a href="#" class="btn"><i class="fa-solid fa-file-lines"></i> arXiv</a>
+                <a href="https://github.com/JacobChalk/Whareformer" class="btn"><i class="fa-brands fa-github"></i> Code & Data</a>
+            </div>
+        </header>
+
+        <section id="teaser">
+            <div class="figure-container">
+                <img src="static/img/teaser.pdf" alt="Teaser figure for Whareformer">
+                <p class="caption">
+                    <strong>Overview of Whareformer.</strong> In the OSNOM task, the goal is to assign the current observation (highlighted in <span class="yellow"><strong>yellow</strong></span> in the current frame) of a 3D egocentric scene with one of the known objects (which respectively correspond to a <em>kettle</em> in <span class="red"><strong>red</strong></span>, a <em>knife</em> in <span class="green"><strong>green</strong></span>, or a <em>tin of chopped tomatoes</em> in <span class="blue"><strong>blue</strong></span>). We propose Whareformer, a model that jointly reasons about the appearance and the location of objects to decide whether to associate the observation with an existing track or initialise a new one.
+                </p>
+            </div>
+        </section>
+
+        <section id="abstract" class="content-text">
+            <h2 class="section-title">Abstract</h2>
+            <p>The recently established 'Out of Sight, Not out of Mind' (OSNOM) task for egocentric videos focuses on tracking objects that are moved by the camera wearer online, maintaining knowledge of instance locations throughout the video even when they leave the field of view or become heavily occluded.
+                In this paper, we propose the first learning-based solution to the OSNOM task: Whareformer, a transformer-based model with two components: an updatable memory of established tracks and a track assignment module that associates observations with existing tracks in a feed-forward manner. 
+                Whareformer jointly reasons over evolving object appearance <em>(what)</em> and updated 3D location <em>(where)</em>, and employs a dedicated New Track token to reason about novel objects. 
+            </p>
+            <p>Thanks to its design choices of using relative distances and evolving track representations, Whareformer is trained on a small set of 56 videos but achieves SOTA performance on 260 long test videos from three datasets: EPIC-KITCHENS-100 (unseen videos), IT3DEgo, and HD-EPIC, 
+                with significant absolute improvements over prior work.</p>
+        </section>
+
+        <section id="method">
+            <h2 class="section-title">Whareformer</h2>
+            <div class="figure-container">
+                <img src="static/img/whareformer_arch.pdf" alt="Whareformer Architecture Diagram">
+                <p class="caption">
+                    <strong>Whareformer architecture.</strong> The current observation is represented by appearance $a_{n}$ and location $l_{n}$ descriptors, which are fed into our first module. Using a memory of tracks constructed so far, it produces embeddings representing the likelihood that this observation corresponds to each track. These embeddings, combined with a new track ($\mathrm{NT}$) token, are fed to a transformer that produces the final track assignment. This prediction is used to update the track memory.
+                </p>
+            </div>
+        </section>
+
+        <section id="video" class="content-text">
+            <h2 class="section-title">Qualitative Video</h2>
+            <p>
+                We provide video-based qualitative results for all evaluated datasets. For EPIC-KITCHENS-100, we provide a qualitative sample illustrating complex, multi-object interactions and tracking. We also supply videos showcasing IT3DEgo's diverse, 
+                unseen environments and HD-EPIC's sparse, challenging sequences. Each video is shown in a side-by-side format, with LMK on the left (state-of-the-art for the OSNOM task) and Whareformer on the right, enabling direct comparison of their tracking and 3D localisation behaviour.
+                For visualisation, we colour an object's bounding box <span class="correct"><strong>green</strong></span> if the current observation has the same track ID as it had for the object's first observation. Otherwise, we colour the bounding box
+                <span class="switch"><strong>orange</strong></span>, indicating that an ID switch has occurred, but the original track can still localise the object within a 30cm threshold (corresponding to the distance threshold used for the PCL evaluation). 
+                However, if the original track cannot localise the object within this threshold, we colour the box <span class="wrong"><strong>red</strong></span>, capturing both "what" and "where" errors. Across all datasets, Whareformer demonstrates fewer errors and greater temporal stability than LMK.
+            </p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUTUBE_ID" title="Qualitative Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="citation">
+            <h2 class="section-title">Citation</h2>
+            <div class="bibtex-wrapper">
+            <code>@InProceedings{chalk2026whareformer,
+    title={Whareformer: Learning to Track What is Where in Long Egocentric Videos},
+    author={Chalk, Jacob and Sinha, Saptarshi and Damen, Dima and Kalantidis, Yannis and Larlus, Diane},
+    booktitle={European Conference on Computer Vision (ECCV)},
+    year={2026}
+}</code>
+            </div>
+        </section>
+
+        <section id="acknowledgements" class="content-text">
+            <h2 class="section-title">Acknowledgements</h2>
+            <p>
+                This work uses public datasets. Research at Bristol is 
+                supported by EPSRC UMPIRE EP/T004991/1, EPSRC PG Visual AI EP/T028572/1. 
+                J Chalk and S Sinha are supported by ESPRC Doctoral Training Program (DTP). 
+                We acknowledge the usage of GPU Node hours provided by the 
+                Isambard-AI National AI Research Resource (AIRR) granted as part of the AIRR Gateway project "HOI Foundational Model from Egocentric Data" (Dec 2025 - Mar 2026) and the Sovereign AI Unit call project "Gen Model in Ego-sensed World" (Aug 2025 - Nov 2025).
+            </p>
+        </section>
+
+    </div>
 </body>
 </html>

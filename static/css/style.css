@@ -267,13 +267,13 @@ section {
     white-space: pre;
 }
 
-.yellow { color: #b45309; font-weight: 700; }
-.red { color: #b91c1c; font-weight: 700; }
-.green { color: #15803d; font-weight: 700; }
-.blue { color: #1d4ed8; font-weight: 700; }
-.correct { color: #16a34a; font-weight: 700; }
-.switch { color: #ea580c; font-weight: 700; }
-.wrong { color: #dc2626; font-weight: 700; }
+.yellow, .yellow strong { color: #ffcc00; font-weight: 700; }
+.red, .red strong { color: #b91c1c; font-weight: 700; }
+.green, .green strong { color: #15803d; font-weight: 700; }
+.blue, .blue strong { color: #1d4ed8; font-weight: 700; }
+.correct, .correct strong { color: #16a34a; font-weight: 700; }
+.switch, .switch strong { color: #ea580c; font-weight: 700; }
+.wrong, .wrong strong { color: #dc2626; font-weight: 700; }
 
 @media (max-width: 768px) {
     .project-title { font-size: 2.1rem; }

@@ -40,7 +40,7 @@
 
         <section id="teaser">
             <div class="figure-container">
-                <img src="static/img/teaser.pdf" alt="Teaser figure for Whareformer">
+                <img src="static/img/teaser.png" alt="Teaser figure for Whareformer">
                 <p class="caption">
                     <strong>Overview of Whareformer.</strong> In the OSNOM task, the goal is to assign the current observation (highlighted in <span class="yellow"><strong>yellow</strong></span> in the current frame) of a 3D egocentric scene with one of the known objects (which respectively correspond to a <em>kettle</em> in <span class="red"><strong>red</strong></span>, a <em>knife</em> in <span class="green"><strong>green</strong></span>, or a <em>tin of chopped tomatoes</em> in <span class="blue"><strong>blue</strong></span>). We propose Whareformer, a model that jointly reasons about the appearance and the location of objects to decide whether to associate the observation with an existing track or initialise a new one.
                 </p>
@@ -60,7 +60,7 @@
         <section id="method">
             <h2 class="section-title">Whareformer</h2>
             <div class="figure-container">
-                <img src="static/img/whareformer_arch.pdf" alt="Whareformer Architecture Diagram">
+                <img src="static/img/whareformer_arch.png" alt="Whareformer Architecture Diagram">
                 <p class="caption">
                     <strong>Whareformer architecture.</strong> The current observation is represented by appearance $a_{n}$ and location $l_{n}$ descriptors, which are fed into our first module. Using a memory of tracks constructed so far, it produces embeddings representing the likelihood that this observation corresponds to each track. These embeddings, combined with a new track ($\mathrm{NT}$) token, are fed to a transformer that produces the final track assignment. This prediction is used to update the track memory.
                 </p>

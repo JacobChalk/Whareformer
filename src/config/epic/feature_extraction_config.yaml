@@ -1,0 +1,327 @@
+tracking:
+  split: all
+  gpu_accelerate: true
+
+feature_extraction:
+  model_2d: dinov2_giant
+  target_batch_size: 128
+  depth_sub_batch_size: 16
+  num_workers: 8
+
+paths:
+  epic_frames_dir: data/EPIC-Data/EPIC-KITCHENS
+  visor_dir: data/EPIC-Data/VISOR
+  visor_frame_mapping: data/EPIC-Data/dense_visor_frame_mapping.json
+  epic_fields_dir: data/EPIC-Data/EPIC-Fields
+  scene_dir: data/EPIC-Data/EPIC-Reconstructions
+  observation_dir: data/epic_osnom/observations
+  video_info_file: data/epic_osnom/EPIC_100_video_info.csv
+
+dataset: epic
+videos:
+  train:
+    - P01_09
+    - P22_07
+    - P25_107
+    - P10_04
+    - P12_101
+    - P27_101
+    - P08_21
+    - P37_101
+    - P02_03
+    - P01_01
+    - P01_14
+    - P22_01
+    - P22_117
+    - P01_05
+    - P03_04
+    - P03_101
+    - P02_130
+    - P12_02
+    - P08_09
+    - P02_122
+    - P08_16
+    - P03_123
+    - P03_112
+    - P12_03
+    - P02_109
+    - P37_103
+    - P02_121
+    - P03_24
+    - P02_132
+    - P02_101
+    - P03_23
+    - P03_05
+    - P11_105
+    - P02_102
+    - P26_110
+    - P02_124
+    - P01_104
+    - P02_135
+    - P32_01
+    - P02_01
+    - P01_103
+    - P11_103
+    - P03_113
+    - P11_16
+    - P11_102
+    - P20_03
+    - P02_128
+    - P02_107
+    - P02_07
+    - P11_101
+    - P07_08
+    - P03_17
+    - P03_11
+    - P03_13
+    - P03_03
+    - P01_03
+  test:
+    - P30_05
+    - P04_121
+    - P06_101
+    - P30_111
+    - P35_105
+    - P24_05
+    - P24_08
+    - P04_02
+    - P28_103
+    - P04_05
+    - P04_110
+    - P30_107
+    - P06_07
+    - P35_109
+    - P04_109
+    - P30_101
+    - P04_03
+    - P06_09
+    - P23_02
+    - P04_04
+    - P06_103
+    - P04_101
+    - P28_06
+    - P28_101
+    - P28_112
+    - P28_113
+    - P06_102
+    - P05_08
+    - P18_03
+    - P28_14
+    - P06_13
+    - P18_06
+    - P23_05
+    - P15_02
+    - P06_107
+    - P05_01
+    - P04_114
+    - P28_13
+    - P18_07
+    - P28_109
+    - P04_11
+    - P28_110
+    - P06_11
+    - P06_14
+    - P06_01
+    - P30_112
+    - P06_12
+    - P04_33
+    - P04_25
+    - P04_21
+    - P17_01
+    - P06_110
+    - P14_05
+    - P04_26
+  
+scene_scales:
+  P01_01: 1.234567901
+  P01_03: 1.739130435
+  P01_05: 1.19760479
+  P01_09: 1.19760479
+  P01_103: 1.19047619
+  P01_104: 0.826446281
+  P01_14: 1.265822785
+  P02_01: 0.9478672986
+  P02_03: 1.219512195
+  P02_07: 1.324503311
+  P02_101: 0.9615384615
+  P02_102: 1.388888889
+  P02_107: 0.9950248756
+  P02_109: 1.265822785
+  P02_121: 0.8695652174
+  P02_122: 1.27388535
+  P02_124: 0.8403361345
+  P02_128: 1.081081081
+  P02_130: 1.03626943
+  P02_132: 1.307189542
+  P02_135: 1.104972376
+  P03_03: 0.625
+  P03_04: 0.9744356799
+  P03_05: 0.4618937644
+  P03_101: 0.8333333333
+  P03_11: 0.6666666667
+  P03_112: 0.9433962264
+  P03_113: 0.5899705015
+  P03_123: 0.4535147392
+  P03_13: 0.7434944238
+  P03_17: 0.4975124378
+  P03_23: 0.4938271605
+  P03_24: 0.7633587786
+  P04_02: 0.9661835749
+  P04_03: 0.9302325581
+  P04_04: 0.9852216749
+  P04_05: 0.6309944472
+  P04_101: 0.6756756757
+  P04_109: 0.5025125628
+  P04_11: 0.5494505495
+  P04_110: 0.7547169811
+  P04_114: 0.4608294931
+  P04_121: 0.4246284501
+  P04_21: 0.6872852234
+  P04_25: 0.6309148265
+  P04_26: 0.422832981
+  P04_33: 0.7042253521
+  P05_01: 0.6006006006
+  P05_08: 0.6808696067
+  P06_01: 0.7299270073
+  P06_07: 0.487804878
+  P06_09: 0.6269592476
+  P06_101: 0.7367947953
+  P06_102: 0.625
+  P06_103: 0.9900990099
+  P06_107: 0.7874015748
+  P06_11: 1.069518717
+  P06_110: 0.4210526316
+  P06_12: 1.183431953
+  P06_13: 0.583090379
+  P06_14: 0.8583690987
+  P07_08: 0.826446281
+  P08_09: 0.6622516556
+  P08_16: 0.4424778761
+  P08_21: 0.701754386
+  P10_04: 0.7604562738
+  P11_101: 0.5319148936
+  P11_102: 1.149425287
+  P11_103: 0.7407407407
+  P11_105: 1.030927835
+  P11_16: 0.9049773756
+  P12_02: 1.069518717
+  P12_03: 0.7246376812
+  P12_101: 0.4651162791
+  P14_05: 0.639
+  P15_02: 0.5714285714
+  P17_01: 1.098901099
+  P18_03: 0.8163265306
+  P18_06: 0.4140786749
+  P18_07: 0.6993006993
+  P20_03: 1.321003963
+  P22_01: 0.8240626288
+  P22_07: 0.826446281
+  P22_117: 0.9302325581
+  P23_02: 0.7490636704
+  P23_05: 0.8968609865
+  P24_05: 0.5391126206
+  P24_08: 0.573
+  P25_107: 0.4545454545
+  P26_110: 0.5617977528
+  P27_101: 0.9708737864
+  P28_06: 0.9259259259
+  P28_101: 1.156069364
+  P28_103: 1.143961883
+  P28_109: 1.360544218
+  P28_110: 0.66
+  P28_112: 1.526717557
+  P28_113: 1.324503311
+  P28_13: 0.3853564547
+  P28_14: 1.369863014
+  P30_05: 0.6166178511
+  P30_101: 0.5221932115
+  P30_107: 0.8297412452
+  P30_111: 1.209189843
+  P30_112: 0.4184100418
+  P32_01: 0.5698005698
+  P35_105: 0.826446281
+  P35_109: 0.956937799
+  P37_101: 0.9174311927
+  P37_103: 0.4807692308
+
+multiple_instances:
+  P01_05: [plate, cupboard, bowl, knife, chopping board, spoon]
+  P01_09: [bottle, potato, cupboard, drawer, bowl, flour, cloth, plate, lid, paper]
+  P01_103: [cupboard, plate, knife, spoon]
+  P01_14: [bin/garbage can/recycling bin, plate, lid, glass]
+  P02_01: [cupboard, plate]
+  P02_03: [pan, lid, cupboard, towel, plate]
+  P02_101: [lid]
+  P02_102: [box, oil bottle]
+  P02_109: [chopping board, meat]
+  P02_121: [spoon]
+  P02_122: [glove, plate, cupboard]
+  P02_124: [washing powder box, drawer, box]
+  P02_128: [box, milk bottle, lid]
+  P02_130: [spoon, tin]
+  P02_132: [tupperware, tupperware lid]
+  P03_04: [bag, squash/squash drink/juice concentrate, food, onion, drawer, knife, kitchen towel, lid, can, spice, spoon]
+  P03_05: [saucepan, lid]
+  P03_101: [plate, saucepan]
+  P03_112: [cupboard]
+  P03_113: [saucepan, plate, rice]
+  P03_123: [oven mitt, clip top jar]
+  P03_17: [saucepan, plate, lid]
+  P03_23: [drawer]
+  P03_24: [saucepan, plate]
+  P04_02: [pan, bowl, egg, drawer, tuna patty, cupboard]
+  P04_03: [pan, tuna burger, bin/garbage can/recycling bin, lunch box, tuna patty, kitchen roll, knife, bowl]
+  P04_04: [drawer, packet, frying pan, cupboard]
+  P04_05: [wok, bag, drawer, spoon, lid, tray]
+  P04_101: [pan, cupboard, plate, onion]
+  P04_109: [carrot, cucumber]
+  P04_110: [cupboard, plate, tea towel]
+  P04_121: [cupboard, whey, tea towel]
+  P04_33: [plate]
+  P05_01: [cup]
+  P05_08: [saucepan]
+  P06_01: [cupboard, cereal]
+  P06_07: [plate, pizza, dough, pizza base]
+  P06_101: [pepper, drawer, onion, sweet potato, pot, cupboard, lid, oil]
+  P06_102: [cupboard, knife]
+  P06_103: [lid, pot, drawer, glove, cupboard, bowl, cup, glass]
+  P06_11: [lid, pot]
+  P06_13: [pot, glove, lid]
+  P07_08: [tortilla, plate]
+  P08_09: [kitchen towel, coffee, lid, avocado]
+  P08_16: [bowl, spoon, egg, cupboard]
+  P08_21: [drawer, glass, bowl, kitchen towel, mug, knife, cupboard, lid, plate, container, spoon, counter, milk bottle]
+  P11_102: [leek]
+  P11_103: [drawer, pan]
+  P11_105: [oven tray, pizza, pizza box]
+  P12_02: [knife]
+  P12_03: [spoon, fork]
+  P12_101: [meat box, cheese, cup, spoon, mug, cream cheese container]
+  P15_02: [cupboard]
+  P17_01: [bowl, lid]
+  P18_03: [plate, cupboard]
+  P18_06: [bowl, cupboard, plate, cup]
+  P18_07: [cupboard, plate]
+  P22_01: [plate, jar, drawer, knife, fork, cup, sponge, banana, peach, place mat]
+  P22_07: [glass, cloth, cupboard, drawer, sponge, rag, lid, plate]
+  P22_117: [drawer, cupboard, bag, glass, lid]
+  P23_02: [counter, plate]
+  P23_05: [plate]
+  P24_05: [cupboard door, cupboard, knife]
+  P24_08: [cupboard]
+  P25_107: [pan, plate, aubergine, cupboard]
+  P27_101: [cupboard, pan, drawer, lid, spatula, cloth, glass, plate]
+  P28_101: [knife, sponge]
+  P28_103: [sponge, cup, towel, drawer, bin]
+  P28_109: [drawer]
+  P28_112: [bag, counter]
+  P28_113: [cupboard, drawer, knife]
+  P28_13: [egg]
+  P30_05: [plate, box, bag, drawer, cupboard, bottle, bowl, surface, carrot]
+  P30_101: [cupboard, mug, plate, sponge, drawer]
+  P30_107: [bowl, saucepan, sponge]
+  P30_111: [cupboard, mug, pan, sponge, wooden spoon]
+  P32_01: [pan]
+  P35_105: [cloth, saucepan, container, cupboard, plate, salt box]
+  P35_109: [bowl, container, cupboard, plate, drawer, mug, cup]
+  P37_101: [stool, cupboard, bowl]

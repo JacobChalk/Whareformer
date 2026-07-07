@@ -1,0 +1,85 @@
+tracking:
+  split: test
+  force_rewrite: true
+  gpu_accelerate: true
+  pca_dim: 256
+  matcher_type: whareformer
+  matcher_params:
+    app_representation: denstream
+    app_aggregation: clusters
+    loc_representation: one_second_window
+    loc_aggregation: nearest_neighbour
+    denstream_params:
+      max_radius: 0.25
+      mu: 10.0
+      decay_rate: 1e-3
+    model_path: data/model_weights/whareformer/model_epoch100.pt
+
+model:
+  name: whareformer
+  architecture:
+    app_dim: 256
+    hidden_dim: 64
+    depth: 1
+    num_heads: 32
+    emb_dropout: 0.1
+    enc_dropout: 0.1
+
+paths:
+  observation_dir: data/it3dego_osnom/observations
+  track_out_dir: outputs/it3dego/whareformer
+  video_info_file: data/it3dego_osnom/IT3DEgo_video_info.csv
+
+dataset: it3dego
+videos:
+  test:
+    - video_10_scene_3
+    - video_11_scene_3
+    - video_16_scene_4
+    - video_17_scene_4
+    - video_9_scene_3
+    - video_14_scene_4
+    - video_40_scene_8
+    - video_19_scene_5
+    - video_27_scene_5
+    - video_20_scene_5
+    - video_22_scene_5
+    - video_32_scene_6
+    - video_29_scene_5
+    - video_24_scene_5
+    - video_38_scene_7
+    - video_43_scene_8
+    - video_4_scene_1
+    - video_36_scene_7
+    - video_8_scene_3
+    - video_26_scene_5
+    - video_48_scene_10
+    - video_25_scene_5
+    - video_23_scene_5
+    - video_12_scene_4
+    - video_34_scene_7
+    - video_3_scene_1
+    - video_37_scene_7
+    - video_45_scene_9
+    - video_46_scene_9
+    - video_1_scene_1
+    - video_28_scene_5
+    - video_2_scene_1
+    - video_39_scene_8
+    - video_41_scene_8
+    - video_31_scene_6
+    - video_7_scene_2
+    - video_49_scene_10
+    - video_50_scene_10
+    - video_6_scene_2
+    - video_30_scene_5
+    - video_13_scene_4
+    - video_47_scene_9
+    - video_35_scene_7
+    - video_21_scene_5
+    - video_15_scene_4
+    - video_33_scene_6
+    - video_42_scene_8
+    - video_44_scene_9
+    - video_18_scene_5
+    - video_5_scene_2

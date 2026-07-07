@@ -25,7 +25,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Citing](#-citing)
 - [Setup Environment](#-setup-environment)

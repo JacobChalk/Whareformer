@@ -53,18 +53,18 @@ If you find this code or our paper useful in your research, please consider citi
 
 ## Setup Environment
 
-### Option A — Latest packages
+### Option A - Latest packages
 
 ```bash
 conda create -n whareformer python=3.13
 conda activate whareformer
 pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126
-pip3 install pandas pyyaml pycolmap lmdb trimesh pyrender opencv-python decord scipy scikit-learn tqdm transformers xformers wandb motmetrics
+pip3 install pandas pyyaml pycolmap lmdb trimesh pyrender opencv-python decord scipy scikit-learn tqdm transformers xformers wandb 'git+https://github.com/cheind/py-motmetrics.git'
 conda install conda-forge::open3d # If reconstructing meshes, otherwise not required
 export PYTHONPATH=/path/to/Whareformer/src:$PYTHONPATH
 ```
 
-### Option B — Match our exact package versions (recommended for reproducibility)
+### Option B - Match our exact package versions (recommended for reproducibility)
 
 ```bash
 conda create -n whareformer python=3.13.13
@@ -91,7 +91,7 @@ Our model weights are available **[here](https://uob-my.sharepoint.com/:f:/g/per
 
 > Steps 0–3 are for training from scratch; you may need to update the relevant paths in the YAML config files. **Skip to Step 4** if you are using our pre-extracted features and training data.
 
-### Step 0 — Download datasets
+### Step 0 - Download datasets
 
 Please refer to the original dataset pages for potentially more convenient links/methods to download the relevant parts of each dataset.
 
@@ -161,7 +161,7 @@ HD-EPIC
 ```
 </details>
 
-### Step 1 — Extract features for each dataset
+### Step 1 - Extract features for each dataset
 
 ```bash
 python scripts/extract_features.py --config config/epic/feature_extraction_config.yaml
@@ -169,9 +169,9 @@ python scripts/extract_features.py --config config/it3dego/feature_extraction_co
 python scripts/extract_features.py --config config/hd_epic/feature_extraction_config.yaml
 ```
 
-> **Note:** EPIC feature extraction will reconstruct 3D meshes if not already present in the target `scene_dir` directory. This step can take a while, so we have pre-extracted them [here]().
+> **Note:** EPIC feature extraction will reconstruct 3D meshes if not already present in the target `scene_dir` directory. This step can take a while, so we have pre-extracted them [here](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQDHGYZj4OaZT7i_ClT546UwAUD3Qmf-HgiyPpOW47lHIz0?e=qPLh6V).
 
-### Step 2 — Learn PCA on training data and apply to all datasets
+### Step 2 - Learn PCA on training data and apply to all datasets
 
 ```bash
 python scripts/apply_pca.py \
@@ -189,7 +189,7 @@ python scripts/apply_pca.py \
     --pca_path /path/to/pca_learned_on_epic
 ```
 
-### Step 3 — Create training data
+### Step 3 - Create training data
 
 **3a. Get oracle tracking data**
 
@@ -203,19 +203,19 @@ python scripts/run_tracker.py --config config/epic/oracle_config.yaml
 python scripts/merge_lmdb.py --source_dir /path/to/oracle_training_data --split train
 ```
 
-### Step 4 — Train model
+### Step 4 - Train model
 
 ```bash
 python training/train_model.py --config config/epic/whareformer_config.yaml
 ```
 
-### Step 5 — Run tracking inference
+### Step 5 - Run tracking inference
 
 ```bash
 python scripts/run_tracker.py --config config/epic/whareformer_config.yaml
 ```
 
-### Step 6 — Evaluate results
+### Step 6 - Evaluate results
 
 ```bash
 python scripts/evaluate.py --results_dir /path/to/tracking_outputs

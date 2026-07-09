@@ -261,7 +261,7 @@ section {
 
 .bibtex-wrapper code {
     font-family: 'Courier New', Courier, monospace;
-    color: #334155;
+    color: rgb(21, 35, 55);
     font-size: 0.9rem;
     line-height: 1.5;
     white-space: pre;

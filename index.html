@@ -38,12 +38,9 @@
             </div>
         </header>
 
-        <section id="teaser">
-            <div class="figure-container">
-                <img src="static/img/teaser.png" alt="Teaser figure for Whareformer">
-                <p class="caption">
-                    <strong>Overview of Whareformer.</strong> In the OSNOM task, the goal is to assign the current observation (highlighted in <span class="yellow"><strong>yellow</strong></span> in the current frame) of a 3D egocentric scene with one of the known objects (which respectively correspond to a <em>kettle</em> in <span class="red"><strong>red</strong></span>, a <em>knife</em> in <span class="green"><strong>green</strong></span>, or a <em>tin of chopped tomatoes</em> in <span class="blue"><strong>blue</strong></span>). We propose Whareformer, a model that jointly reasons about the appearance and the location of objects to decide whether to associate the observation with an existing track or initialise a new one.
-                </p>
+        <section id="promo_video" class="content-text">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/tfJ1yhIE8cE?si=c_3Ld2pt-O8Nzowh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -57,8 +54,24 @@
                 with significant absolute improvements over prior work.</p>
         </section>
 
+        <section id="overview">
+            <div class="figure-container">
+                <img src="static/img/teaser.png" alt="Overview figure for Whareformer">
+                <p class="caption">
+                    <strong>Overview of Whareformer.</strong> In the OSNOM task, the goal is to assign the current observation (highlighted in <span class="yellow"><strong>yellow</strong></span> in the current frame) of a 3D egocentric scene with one of the known objects (which respectively correspond to a <em>kettle</em> in <span class="red"><strong>red</strong></span>, a <em>knife</em> in <span class="green"><strong>green</strong></span>, or a <em>tin of chopped tomatoes</em> in <span class="blue"><strong>blue</strong></span>). We propose Whareformer, a model that jointly reasons about the appearance and the location of objects to decide whether to associate the observation with an existing track or initialise a new one.
+                </p>
+            </div>
+        </section>
+
         <section id="method">
             <h2 class="section-title">Whareformer</h2>
+            <p>
+                Our method jointly leverages 2D appearance similarities (<em>what</em>) and the metric distance between objects lifted to 3D (<em>where</em>) through a learned What-and-Where Transformer (aka <em>Whareformer</em>). 
+                We efficiently store track representations in memory via adaptive clustering of evolving object-level appearances and changing locations. 
+                Importantly, new track creation is treated as a first-class decision through an explicit token, rather than being triggered only when a manually defined cost threshold is exceeded. 
+                Through learning, the model dynamically handles complex scenarios (such as occlusion, objects moving to locations where others were removed, or objects reappearing from a different viewpoint) and learns when to initialise new tracks for novel observations. 
+                Taken together, these designs yield a robust and efficient egocentric object tracker.
+            </p>
             <div class="figure-container">
                 <img src="static/img/whareformer_arch.png" alt="Whareformer Architecture Diagram">
                 <p class="caption">
@@ -67,7 +80,7 @@
             </div>
         </section>
 
-        <section id="video" class="content-text">
+        <section id="qual_video" class="content-text">
             <h2 class="section-title">Qualitative Video</h2>
             <p>
                 We provide video-based qualitative results for all evaluated datasets. For EPIC-KITCHENS-100, we provide a qualitative sample illustrating complex, multi-object interactions and tracking. We also supply videos showcasing IT3DEgo's diverse, 
@@ -78,7 +91,7 @@
             </p>
             
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/uv9yM47moEE?si=geZCikCNgKpuyJs-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/tfJ1yhIE8cE?si=c_3Ld2pt-O8Nzowh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </section>
 

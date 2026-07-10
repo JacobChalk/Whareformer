@@ -21,7 +21,7 @@
 
 **Whareformer** is an online, long-term 3D object tracker for egocentric video that reasons jointly about *where* an object is and *what* it looks like, enabling long-term tracking which is robust through occlusions, out-of-frame periods, and evolving object appearance across EPIC-KITCHENS, IT3DEgo, and HD-EPIC.
 
-> [Paper](https://arxiv.org/abs/2607.08537) &nbsp;•&nbsp; [Project Webpage](https://jacobchalk.github.io/Whareformer/) &nbsp;•&nbsp; [Pre-extracted Features](#pre-extracted-features) &nbsp;•&nbsp; [Pre-trained Models](#pre-trained-model)
+> [Paper](https://arxiv.org/abs/2607.08537) &nbsp;•&nbsp; [Project Webpage](https://jacobchalk.github.io/Whareformer/) &nbsp;•&nbsp; [Architecture](ARCHITECTURE.md) &nbsp;•&nbsp; [Pre-extracted Features](#pre-extracted-features) &nbsp;•&nbsp; [Pre-trained Models](#pre-trained-model)
 
 ---
 
@@ -29,6 +29,7 @@
 
 - [Citing](#citing)
 - [Setup Environment](#setup-environment)
+- [Architecture](#architecture)
 - [Pre-extracted Features](#pre-extracted-features)
 - [Pre-trained Model](#pre-trained-model)
 - [Training and Evaluating Whareformer](#training-and-evaluating-whareformer)
@@ -75,6 +76,10 @@ pip3 install -r requirements.txt
 
 ---
 
+## Architecture
+
+We provide details on how the codebase generally operates in [Architecture](ARCHITECTURE.md).
+
 ## Pre-extracted Features
 
 We provide pre-extracted features for all observations in **EPIC**, **IT3DEgo**, and **HD-EPIC**, along with the training data LMDB, **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgA46O5x-kvGT4CqSfdx1DWCAUmq1H2IWLoN1qWGtzj9au0?e=usVcRF)**. Downloading these is recommended for reproducibility and ease of use.
@@ -92,6 +97,8 @@ Our model weights are available **[here](https://uob-my.sharepoint.com/:f:/g/per
 > Steps 0–3 are for training from scratch; you may need to update the relevant paths in the YAML config files. **Skip to Step 4** if you are using our pre-extracted features and training data.
 
 ### Step 0 - Download datasets
+
+> To use your own dataset instead, see [Architecture](ARCHITECTURE.md#adding-a-new-dataset) for the expected output format before tracking.
 
 Please refer to the original dataset pages for potentially more convenient links/methods to download the relevant parts of each dataset.
 
@@ -169,7 +176,7 @@ python scripts/extract_features.py --config config/it3dego/feature_extraction_co
 python scripts/extract_features.py --config config/hd_epic/feature_extraction_config.yaml
 ```
 
-> **Note:** EPIC feature extraction will reconstruct 3D meshes if not already present in the target `scene_dir` directory. This step can take a while, so we have pre-extracted them [here](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQDHGYZj4OaZT7i_ClT546UwAUD3Qmf-HgiyPpOW47lHIz0?e=qPLh6V).
+> **Note:** EPIC feature extraction will reconstruct 3D meshes if not already present in the target `scene_dir` directory. This step takes a while, so we have pre-extracted them [here](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQDHGYZj4OaZT7i_ClT546UwAUD3Qmf-HgiyPpOW47lHIz0?e=qPLh6V).
 
 ### Step 2 - Learn PCA on training data and apply to all datasets
 

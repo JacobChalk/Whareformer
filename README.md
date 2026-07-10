@@ -21,7 +21,7 @@
 
 **Whareformer** is a long-term object tracker for egocentric video that reasons jointly about *where* an object is and *what* it looks like, enabling long-term tracking which is robust through occlusions, out-of-frame periods, and evoloving object appearance across EPIC-KITCHENS, IT3DEgo, and HD-EPIC.
 
-> Paper: *coming soon on arXiv* &nbsp;•&nbsp; [Project Webpage](https://jacobchalk.github.io/Whareformer/) &nbsp;•&nbsp; [Pre-extracted Features](#pre-extracted-features) &nbsp;•&nbsp; [Pre-trained Models](#pre-trained-model)
+> [Paper](https://arxiv.org/abs/2607.08537) &nbsp;•&nbsp; [Project Webpage](https://jacobchalk.github.io/Whareformer/) &nbsp;•&nbsp; [Pre-extracted Features](#pre-extracted-features) &nbsp;•&nbsp; [Pre-trained Models](#pre-trained-model)
 
 ---
 

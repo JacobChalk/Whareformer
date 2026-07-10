@@ -7,7 +7,7 @@
 **ECCV 2026**
 
 [![Project Page](https://img.shields.io/badge/Project-Webpage-blue?style=for-the-badge&logo=github)](https://jacobchalk.github.io/Whareformer/)
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b?style=for-the-badge&logo=arxiv)]()
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-b31b1b?style=for-the-badge&logo=arxiv)](https://arxiv.org/abs/2607.08537)
 [![ECCV 2026](https://img.shields.io/badge/ECCV-2026-4b44ce?style=for-the-badge)](https://eccv.ecva.net)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 

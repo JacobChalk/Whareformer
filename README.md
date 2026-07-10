@@ -61,7 +61,7 @@ conda create -n whareformer python=3.13
 conda activate whareformer
 pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 pip3 install pandas pyyaml pycolmap lmdb trimesh pyrender opencv-python decord scipy scikit-learn tqdm transformers xformers wandb 'git+https://github.com/cheind/py-motmetrics.git'
-conda install conda-forge::open3d # If reconstructing meshes, otherwise not required
+conda install conda-forge::open3d # If reconstructing EPIC meshes, otherwise not required
 export PYTHONPATH=/path/to/Whareformer/src:$PYTHONPATH
 ```
 
@@ -70,7 +70,7 @@ export PYTHONPATH=/path/to/Whareformer/src:$PYTHONPATH
 ```bash
 conda create -n whareformer python=3.13.13
 conda activate whareformer
-conda install conda-forge::open3d=0.19.0 # If reconstructing meshes, otherwise not required
+conda install conda-forge::open3d=0.19.0 # If reconstructing EPIC meshes, otherwise not required
 pip3 install -r requirements.txt
 ```
 

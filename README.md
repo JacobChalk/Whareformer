@@ -82,13 +82,13 @@ We provide details on how the codebase generally operates in [Architecture](ARCH
 
 ## Pre-extracted Features
 
-We provide pre-extracted features for all observations in **EPIC**, **IT3DEgo**, and **HD-EPIC**, along with the training data LMDB, **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgA46O5x-kvGT4CqSfdx1DWCAUmq1H2IWLoN1qWGtzj9au0?e=usVcRF)**. Downloading these is recommended for reproducibility and ease of use.
+We provide pre-extracted features for all observations in **EPIC**, **IT3DEgo**, and **HD-EPIC**, along with the training data LMDB, **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgA46O5x-kvGT4CqSfdx1DWCAUmq1H2IWLoN1qWGtzj9au0?e=vVBla6)**. Downloading these is recommended for reproducibility and ease of use.
 
-If you wish to use the raw DINOv2 features without PCA applied, you can download them **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgCab5vZmTyJQ4CeiOUwuiJUAa7aclUjNoOqGcnrsY5NU_4?e=vPhq1B)**.
+If you wish to use the raw DINOv2 features without PCA applied, you can download them **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgCab5vZmTyJQ4CeiOUwuiJUAa7aclUjNoOqGcnrsY5NU_4?e=FU9y06)**.
 
 ## Pre-trained Model
 
-Our model weights are available **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgBNUQ7Ibh8LRY1nl5diqeyqAYJm8-ctCTzuIPBmwzUl83Q?e=1IKgOF)**. Downloading these weights is recommended to reproduce the results reported in the paper.
+Our model weights are available **[here](https://uob-my.sharepoint.com/:f:/g/personal/jc17360_bristol_ac_uk/IgBNUQ7Ibh8LRY1nl5diqeyqAYJm8-ctCTzuIPBmwzUl83Q?e=9bWQpI)**. Downloading these weights is recommended to reproduce the results reported in the paper.
 
 ---
 
@@ -105,7 +105,7 @@ Please refer to the original dataset pages for potentially more convenient links
 <details>
 <summary><b>0a. EPIC-KITCHENS</b></summary>
 
-Download [EPIC-Kitchens RGB frames](https://github.com/epic-kitchens/epic-kitchens-100-annotations), [VISOR Dense Interpolations](https://data.bris.ac.uk/data/dataset/2v6cgv1x04ol22qp9rm9x2j6a7), [EPIC-Fields Sparse Reconstructions](https://www.dropbox.com/scl/fo/0wtphqqyp4fu6bd7dhbfs/h?rlkey=ju21graeixi6vpecrf7rqurpt), and [VISOR dense frame mapping](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQCvI5tqyE96RZ6EcCmMaYXjAbj_IW1x2TxVhWP0A2z9d3I?e=6SSYVi).
+Download [EPIC-Kitchens RGB frames](https://github.com/epic-kitchens/epic-kitchens-100-annotations), [VISOR Dense Interpolations](https://data.bris.ac.uk/data/dataset/2v6cgv1x04ol22qp9rm9x2j6a7), [EPIC-Fields Sparse Reconstructions](https://www.dropbox.com/scl/fo/0wtphqqyp4fu6bd7dhbfs/h?rlkey=ju21graeixi6vpecrf7rqurpt), and [VISOR dense frame mapping](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQCvI5tqyE96RZ6EcCmMaYXjAbj_IW1x2TxVhWP0A2z9d3I?e=MZeAfz).
 
 The feature extractor assumes all data is extracted into one folder with the following file structure:
 
@@ -176,7 +176,7 @@ python scripts/extract_features.py --config config/it3dego/feature_extraction_co
 python scripts/extract_features.py --config config/hd_epic/feature_extraction_config.yaml
 ```
 
-> **Note:** EPIC feature extraction will reconstruct 3D meshes if not already present in the target `scene_dir` directory. This step takes a while, so we have pre-extracted them [here](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQDHGYZj4OaZT7i_ClT546UwAUD3Qmf-HgiyPpOW47lHIz0?e=qPLh6V).
+> **Note:** EPIC feature extraction will reconstruct 3D meshes if not already present in the target `scene_dir` directory. This step takes a while, so we have pre-extracted them [here](https://uob-my.sharepoint.com/:u:/g/personal/jc17360_bristol_ac_uk/IQDHGYZj4OaZT7i_ClT546UwAUD3Qmf-HgiyPpOW47lHIz0?e=vOlcD6).
 
 ### Step 2 - Learn PCA on training data and apply to all datasets
 
